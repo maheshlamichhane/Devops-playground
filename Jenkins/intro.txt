@@ -1,0 +1,35 @@
+1. Install jenkins
+2. Nexus Setup
+3. Sonarqube setup
+4. security group
+5. Plugins
+5. Integrate
+  i. Nexus
+  ii. Sonarqube
+6. Write pipeline script
+7. set notification
+
+Installing Plugins:
+Nexus(nexus artifact uploader)
+Sonarqube(sonarqube scanner)
+Git
+Pipeline Maven Integration Plugin
+BuildTimestamp
+Pipeline Utility Step
+Add slack plugins
+SSH Client Plugin
+
+Note: after adding the sonar kube then create the tool and
+configure using credentials in system config. for nexus also same process.
+
+
+Necessary additional setup for docker image aws ci cd:
+-> IAM user with ecr permission
+-> Store aws cred in jenkins
+-> ECR repos on AWS
+-> Plugin docker pipeline for jenkins
+-> Install docker engine on jenkins
+-> Plugin ecr
+
+
+
