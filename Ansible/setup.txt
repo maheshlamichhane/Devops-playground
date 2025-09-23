@@ -13,3 +13,41 @@ Order of Ansible Config
 2. ansible.cfg(in the current working directory)
 3. ~/.ansible.cfg(in the home directory)
 4. /etc/ansible/ansible.cfg
+
+Ansible Commands For Inventory:
+ansible web01 -m ping -i inventory(host)
+ansible  webservers  -m ping -i inventory(group)
+ansible dbservers  -m ping -i inventory(group)
+ansible all  -m ping -i inventory
+
+Ansible Ad-hoc commands(without playbook):
+ansible web01 -m ansible.builtin.yum -a "name=httpd state=present" -i inventory --become(host)
+
+ansible webservers -m ansible.builtin.yum -a "name=httpd state=present" -i inventory --become(group)
+
+ansible webservers -m ansible.builtin.yum -a "name=httpd state=absent" -i inventory --become
+
+ansible webservers -m ansible.builtin.service -a "name=httpd state=started enabled=yes" -i inventory --become
+
+ansible webservers -m ansible.builtin.copy -a "src=index.html dest=/var/www/html/index.html" -i inventory --become
+
+
+Ansible Playbook commands:
+ansible-playbook -i inventory web-db.yaml
+ansible-playbook -i inventory web-db.yaml -v
+ansible-playbook -i inventory web-db.yaml  --syntax-check
+ansible-playbook -i inventory web-db.yaml -C
+
+
+
+
+Note:-> host level variable has always higher priority then group level in inventory section.
+
+Fact variable -> runtime variables like linux distritution,ram etc.
+
+Handlers:-> called when the the changed in file. for example if the conf
+file is changed system needs to restart.
+
+Ansible Roles:
+
+
