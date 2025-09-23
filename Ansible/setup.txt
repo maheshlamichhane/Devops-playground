@@ -1,0 +1,15 @@
+Installing ansible on ubuntu:
+
+$ sudo apt update
+$ sudo apt install software-properties-common
+$ sudo add-apt-repository --yes --update ppa:ansible/ansible
+$ sudo apt install ansible
+
+Ansible VS Bash Scripting:
+-> scripting will install the software even if it is already installed but ansilbe checks the state it only install if the software is not installed.
+
+Order of Ansible Config
+1. ANSIBLE_CONFIG(environment variable if set)
+2. ansible.cfg(in the current working directory)
+3. ~/.ansible.cfg(in the home directory)
+4. /etc/ansible/ansible.cfg
